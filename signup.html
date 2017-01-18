@@ -1,0 +1,242 @@
+<html>
+
+
+<head>
+
+<title>Signup Form</title>
+<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+
+<style type="text/css">
+
+form { 
+
+
+/*margin-left: auto;
+margin-right:auto;
+
+
+margin-top: auto;
+margin-bottom:auto; 
+width:250px;*/
+
+ position:absolute;
+    top:14%;
+    right:0;
+    left:0;
+
+    margin-right:auto;
+
+margin-left: auto;
+width:250px;
+
+}
+
+
+.mystyle
+{
+
+
+	font-family: 'Raleway', sans-serif;
+}
+
+
+</style>
+<script type="text/javascript">
+
+
+function rememberlast(){
+if (typeof(Storage) !== "undefined") {
+    // Store
+    
+    // Retrieve
+    document.getElementById("uid").value= localStorage.getItem("id1");
+     document.getElementById("pass").value = localStorage.getItem("pass1");
+
+  
+} else {
+  alert( "Sorry, your browser does not support Web Storage...");
+}
+
+}
+function validateForm() {
+    var x = document.forms["myform"]["name1"].value;
+    if (x == "" || x.length < 3) {
+        alert("Please enter proper name");
+        return false;
+    }
+
+      if (!/^[a-zA-Z]*$/g.test(x)) {
+        alert("Please enter valid name");
+       
+        return false;
+    }
+
+
+    if(document.forms["myform"]["age"].value.length>4  )
+    {
+alert("Please enter valid age");
+       
+        return false;
+
+
+    }
+
+     if(document.forms["myform"]["userid"].value.length<=3  )
+    {
+alert("Please enter user id with more than 3 characters");
+       
+   
+        return false;
+
+
+    }
+    
+
+     if(document.forms["myform"]["address"].value.length<=3  )
+    {
+alert("Please enter valid address");
+       
+        return false;
+
+
+    }
+
+
+     var y = document.forms["myform"]["password"].value;
+
+          var z = document.forms["myform"]["phoneno"].value;
+
+               var a = document.forms["myform"]["email"].value;
+
+
+
+                if(y != "" ) {
+      if(y.length < 6) {
+        alert("Error: Password must contain at least six characters!");
+        
+        return false;
+      }
+      if(y == x) {
+        alert("Error: Password must be different from Username!");
+        
+        return false;
+      }
+      re = /[0-9]/;
+      if(!re.test(y)) {
+        alert("Error: password must contain at least one number (0-9)!");
+       
+        return false;
+      }
+      re = /[a-z]/;
+      if(!re.test(y)) {
+        alert("Error: password must contain at least one lowercase letter (a-z)!");
+       
+        return false;
+      }
+      re = /[A-Z]/;
+      if(!re.test(y)) {
+        alert("Error: password must contain at least one uppercase letter (A-Z)!");
+        
+        return false;
+      }
+
+
+
+          
+    } else {
+      alert("Error: Please check that you've entered and confirmed your password!");
+   
+      return false;
+    }
+
+
+
+
+     var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+ if(!re.test(a))
+ {
+ alert("Error: Please check that you've entered correct Email ID!");
+    
+      return false;
+
+ }
+
+
+  var phoneno = /^\+?([0-9]{2})\)?[-. ]?([0-9]{4})[-. ]?([0-9]{4})$/;
+  if(!phoneno.test(z) || phoneno.length<10) {
+  
+    alert("You have entered Incorrect Phone Number");
+    return false;
+  }
+ localStorage.setItem("pass1", y);
+ localStorage.setItem("id1", document.forms["myform"]["userid"].value);
+    alert("Thank You " + x + " for registring with us. We shall keep you updated.");
+    return true;
+}
+
+
+</script>
+
+</head>
+
+<body  background="login.jpg" onload="rememberlast()">
+
+
+
+	<center><h1 class="mystyle" style="color:white";> Welcome To Bangalore </h1></center>
+<br><br>
+
+<form  id="myform" onsubmit="return validateForm()">
+
+<label class="mystyle" style="color:white; ";>Name</label>
+<br/>
+<input  style="width:100%;" type="text" name="name1" id="name1" required />
+
+<br><br>
+<label class="mystyle" style="color:white";>Age</label>
+<br>
+<input style="width:100%;" type="number" name="age" id="age" required/>
+<br><br>
+<label  class="mystyle" style="color:white";>Gender</label>
+<br><br>
+<input  type="radio" name="gender" required /><span class="mystyle"  style="color:white";>Male</span>
+<br>
+<input  type="radio" name="gender"/><span class="mystyle" style="color:white";>Female</span>
+<br><br>
+<label class="mystyle" style="color:white";>User ID</label>
+<br>
+<input style="width:100%;" required type="text" name="userid" id="uid" />
+<br><br>
+<label class="mystyle" style="color:white";>Password:</label>
+<br>
+<input style="width:100%;" required type="password" name="password" id="pass" />
+<br><br>
+<label class="mystyle" style="color:white";>Address</label>
+<br>
+<input style="width:100%;" required type="text" name="address" id="address"/>
+<br><br>
+<label class="mystyle" style="color:white";>Phone No.</label>
+<br>
+<input style="width:100%;" required type="text" id="phoneno"/>
+<br><br>
+<label class="mystyle" style="color:white";>Interest</label>
+<br>
+<input   type="checkbox" name="interest"/><span class="mystyle"  style="color:white";>Food</span>
+<input   type="checkbox" name="interest"/><span class="mystyle"  style="color:white";>Tech Parks</span>
+<input   type="checkbox" name="interest"/><span class="mystyle"  style="color:white";>Others</span>
+<br><br>
+<label class="mystyle" style="color:white";>Email</label>
+<br>
+<input style="width:100%;" required type="text" name="email"/>
+<br><br>
+<center><input class="mystyle" type="submit" name="btn" ></center>
+
+
+</form>
+
+
+</body>
+
+
+
+</html>
